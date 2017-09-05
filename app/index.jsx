@@ -1,12 +1,21 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import {createStore} from "redux"
+import Counter from "./components/Counter"
+import counter from "./reducers"
 
-export default class App extends React.Component {
-    render(){
-        return(
-            <h1>Hello,World</h1>
-        )
-    }
-}
+const store = createStore(counter);
 
-ReactDOM.render(<App/>,document.querySelector("#root"));
+function render() {
+    ReactDOM.render(
+      <Counter
+        value={store.getState()}
+        onIncrement={() => store.dispatch({ type: 'INCREMENT' })}
+        onDecrement={() => store.dispatch({ type: 'DECREMENT' })}
+      />,
+      document.querySelector("#root")
+    );
+  }
+  
+  render();
+  store.subscribe(render);
