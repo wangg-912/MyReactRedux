@@ -1,0 +1,4 @@
+#数据规则
+观察index.js中的代码，它用combineReducers这个函数来对conter.js封装,这样做哦是为了更好的扩展性。仔细想一下，一个系统中存储在redux中的数据很多，治理已经有一个conter.js来处理事件，可能随着系统的发展还会增加很多种数据；
+
+在观察Connect1.jsx 和 Connect2.jsx 其中使用state.counter来表示加减数据，这就是combineReducers分装各个reducer的作用；
