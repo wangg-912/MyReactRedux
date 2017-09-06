@@ -4,11 +4,12 @@
   "description": "基于Reactjs和es2015采用redux管理数据，使用webpack打包开发的一款应用软件",
   "main": "index.jsx",
   "scripts": {
-    "test": "NODE_ENV=production  mocha --compilers js:babel-croe/register --require ignore-styles",
+    "test": "cross-env NODE_ENV=production  mocha --compilers js:babel-croe/register --require ignore-styles",
     "dev": "webpack-dev-server --devtool eval --progress --colors",
     "start": "webpack-dev-server --hot --progress --colors --port 8888",
     "deploy": "NODE_ENV=production webpack -p",
-    "build": "webpack"
+    "build": "webpack",
+    "test:watch": "npm test -- --watch"
   },
   "repository": {
     "type": "git",
@@ -58,6 +59,7 @@
     "react-redux": "^5.0.6",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0",
+    "redux-undo": "^0.6.1",
     "resolve": "^1.4.0",
     "style-loader": "^0.18.2",
     "url-loader": "^0.5.9",
